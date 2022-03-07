@@ -5,5 +5,5 @@ Content-Type: application/json
     "name": "Printer A45 EPSON",
     "price": 1300000,
     "stock": 4,
-    "status": true
+    "status": false
 }
