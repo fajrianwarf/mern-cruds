@@ -35,7 +35,12 @@ const Edit = () => {
   //OnSubmit function
   const sendEdit = (e) => {
     e.preventDefault();
-    axios.patch(`http://localhost:3001/edit/${id}`, { editName, editPrice, editStock, editStatus })
+    try {
+      axios.patch(`http://localhost:3001/edit/${id}`, { editName, editPrice, editStock, editStatus })
+      console.log('mamaa udh berhasil nihh')
+    } catch (error) {
+      console.log(error)
+    }
 
     console.log(`Data : ${editName}, ${editPrice}, ${editStock}, ${editStatus}`);
   }
