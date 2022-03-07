@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import './index.scss';
 
@@ -8,7 +8,7 @@ const Detail = () => {
   const { id } = useParams();
   const [ dataApi, setDataApi ] = useState([]);
 
-  const getData = async () => {
+  const getData = useCallback(async () => {
     try {
       await axios
       .get(`http://localhost:3001/${id}`)
@@ -19,11 +19,11 @@ const Detail = () => {
     } catch (error) {
       console.log(error.message);
     }
-  }
+  },[id])
   
   useEffect(() => {
     getData();
-  },[])
+  },[getData])
 
   return (
     <div className="main">

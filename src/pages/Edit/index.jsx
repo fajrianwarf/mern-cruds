@@ -1,36 +1,38 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import Input from "../../components/Input";
 
+// import aset1 from '/public/aset/foto2.jpeg'
+
 const Edit = () => {
   const { id } = useParams();
-  const [ dataApi, setDataApi ] = useState([]);
+  // const [ dataApi, setDataApi ] = useState([]);
   const [ editName, setEditName ] = useState('');
   const [ editPrice, setEditPrice ] = useState(0);
   const [ editStock, setEditStock ] = useState(0);
   const [ editStatus, setEditStatus ] = useState(false);
   
-  const getData = async () => {
+  const getData = useCallback( async () => {
     try {
       await axios
       .get(`http://localhost:3001/${id}`)
       .then((res) => {
-        setDataApi(res.data[0]);
+        // setDataApi(res.data[0]);
         console.log(res.data);
-        setEditName(res.data.name)
-        setEditPrice(res.data.price)
-        setEditStock(res.data.stock)
-        setEditStatus(res.data.status)
+        setEditName(res.data[0].name)
+        setEditPrice(res.data[0].price)
+        setEditStock(res.data[0].stock)
+        setEditStatus(res.data[0].status)
       })
     } catch (error) {
       console.log(error.message);
     }
-  }
+  },[id])
   
   useEffect(() => {
     getData();
-  },[])
+  },[getData])
   
   //OnSubmit function
   const sendEdit = (e) => {
