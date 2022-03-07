@@ -3,8 +3,6 @@ import { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import Input from "../../components/Input";
 
-// import aset1 from '/public/aset/foto2.jpeg'
-
 const Edit = () => {
   const { id } = useParams();
   // const [ dataApi, setDataApi ] = useState([]);
@@ -36,8 +34,8 @@ const Edit = () => {
   
   //OnSubmit function
   const sendEdit = (e) => {
-    // e.preventDefault();
-    // axios.patch('http://localhost:3001/', { editName, editPrice, editStock, editStatus })
+    e.preventDefault();
+    axios.patch(`http://localhost:3001/edit/${id}`, { editName, editPrice, editStock, editStatus })
 
     console.log(`Data : ${editName}, ${editPrice}, ${editStock}, ${editStatus}`);
   }

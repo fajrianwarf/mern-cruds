@@ -2,8 +2,8 @@ PATCH http://localhost:3001/edit/62259cdd59940b3673626b09
 Content-Type: application/json
 
 {
-    "name": "Printer A45 EPSON",
-    "price": 1300000,
-    "stock": 4,
-    "status": false
+    "name": "URA URAA URAAAAA",
+    "price": 1100000000,
+    "stock": 5,
+    "status": true
 }

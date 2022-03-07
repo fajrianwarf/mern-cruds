@@ -57,7 +57,7 @@ const Home = () => {
                   <td className="text-center">
                     <Link to={`/detail/${list._id}`} className="btn btn-sm btn-info" >Detail</Link>
                     <Link to={`/edit/${list._id}`} className="btn btn-sm btn-warning" >Edit</Link>
-                    <Link to="" className="btn btn-sm btn-danger" onClick={ () => deleteProduct(list._id)}>Delete</Link>
+                    <Link to="/" className="btn btn-sm btn-danger" onClick={ () => deleteProduct(list._id)}>Delete</Link>
                   </td>
                 </tr>
               )

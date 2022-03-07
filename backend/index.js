@@ -53,59 +53,22 @@ app.post('/tambah', async (req, res) => {
     }
 })
 
-//the edit request still wrong
-// app.patch('/edit/:id', async (req, res) => {
-//     const id = req.params.id
-//     const name = req.body.editName
-//     const price = req.body.editPrice
-//     const stock = req.body.editStock
-//     const status = req.body.editStatus
+app.patch('/edit/:id', async (req, res) => {
+    // const id = req.params.id
+    // const name = req.body.editName
+    // const price = req.body.editPrice
+    // const stock = req.body.editStock
+    // const status = req.body.editStatus
 
-//     try {
-//         await Product.findById(id, (err, updateProduct) => {
-//             updateProduct.name = name;
-//             updateProduct.price = price;
-//             updateProduct.stock = stock;
-//             updateProduct.status = status;
-//             updateProduct.save();
-//             res.json(updateProduct);
-//         })
-//     } catch (error) {
-//         res.json({ message: error.message })
-//     }
-// })
-    
-// app.patch('edit/:id', async () => {
-//     await Product.findByIdAndUpdate(req.params.id, req.body, {new: true},
-//         (err, docs) => {
-//             try {
-//                 // res.json(req.body);
-//                 res.json(docs);
-//             } catch (error) {
-//                 res.json({ message: err.message })
-//             }
-//         }
-//     )
-// })
-
-// app.patch('edit/:id', async () => {
-//     await Product.findByIdAndUpdate(req.params.id, req.body, {new: true},
-//     function (err, docs) {
-//         if (err){
-//             console.log(err)
-//         }
-//         else{
-//             console.log("Updated User : ", docs);
-//         }
-//     })
-// })
-
-// app.patch('edit/:id', async () => {
-//     let doc = await Character.findOneAndUpdate({"_id": req.params.id}, req.body, {
-//         returnOriginal: false
-//     });
-// })
-
+    try {
+        await Product.findByIdAndUpdate(req.params.id, req.body, {
+            returnOriginal: false
+        });
+        res.json({ message: 'Update data success'})
+    } catch (error) {
+        res.json({ message: error.message })
+    }
+})
 
 app.delete('/delete/:id', async (req, res) => {
     const id = req.params.id
