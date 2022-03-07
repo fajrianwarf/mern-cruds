@@ -2,7 +2,7 @@ PATCH http://localhost:3001/edit/62259cdd59940b3673626b09
 Content-Type: application/json
 
 {
-    "name": "URA URAA URAAAAA",
+    "name": "URA URAA URAAAAAA",
     "price": 1100000000,
     "stock": 5,
     "status": true

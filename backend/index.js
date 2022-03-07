@@ -53,13 +53,13 @@ app.post('/tambah', async (req, res) => {
     }
 })
 
-app.patch('/edit/:id', async (req, res) => {
-    // const id = req.params.id
-    // const name = req.body.editName
-    // const price = req.body.editPrice
-    // const stock = req.body.editStock
-    // const status = req.body.editStatus
+// const id = req.params.id
+// const name = req.body.editName
+// const price = req.body.editPrice
+// const stock = req.body.editStock
+// const status = req.body.editStatus
 
+app.patch('/edit/:id', async (req, res) => {
     try {
         await Product.findByIdAndUpdate(req.params.id, req.body, {
             returnOriginal: false
