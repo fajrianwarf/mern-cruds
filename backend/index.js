@@ -53,15 +53,15 @@ app.post('/tambah', async (req, res) => {
     }
 })
 
-// const id = req.params.id
-// const name = req.body.editName
-// const price = req.body.editPrice
-// const stock = req.body.editStock
-// const status = req.body.editStatus
 
 app.patch('/edit/:id', async (req, res) => {
+    const id = req.params.id
+    const name = req.body.editName
+    const price = req.body.editPrice
+    const stock = req.body.editStock
+    const status = req.body.editStatus
     try {
-        await Product.findByIdAndUpdate(req.params.id, req.body, {
+        await Product.findByIdAndUpdate(id, { name, price, stock, status }, {
             returnOriginal: false
         });
         res.json({ message: 'Update data success'})

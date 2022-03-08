@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import './index.scss';
 import axios from 'axios';
 
 const Home = () => {
-  
   const [ productList, setProductList ] = useState([]);
 
-  const getData = async () => {
+  const getData = useCallback( async () => {
     try {
       await axios
         .get('http://localhost:3001/')
@@ -18,15 +17,15 @@ const Home = () => {
     } catch (error) {
       console.log(error.message);
     }
-  }
+  }, [])
   
   useEffect(() => {
     getData();
-  },[])
+  },[getData])
 
   const deleteProduct = (id) => {
     axios.delete(`http://localhost:3001/delete/${id}`)
-    getData();
+    // getData();
   }
 
   return(

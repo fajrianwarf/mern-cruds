@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useState, useEffect, useCallback } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import Input from "../../components/Input";
 
 const Edit = () => {
+  const goBack = useHistory();
   const { id } = useParams();
   // const [ dataApi, setDataApi ] = useState([]);
   const [ editName, setEditName ] = useState('');
@@ -41,8 +42,9 @@ const Edit = () => {
     } catch (error) {
       console.log(error)
     }
-
+    
     console.log(`Data : ${editName}, ${editPrice}, ${editStock}, ${editStatus}`);
+    goBack.push('/');
   }
 
   //OnChange functions
